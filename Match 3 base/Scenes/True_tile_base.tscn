@@ -1,0 +1,39 @@
+[gd_scene load_steps=10 format=3 uid="uid://ceo4dkwh4fml8"]
+
+[ext_resource type="Script" path="res://Scripts/Tile_source.gd" id="1_8g7qh"]
+[ext_resource type="Texture2D" uid="uid://cffdb37ugx3j2" path="res://Assets/White 6.png" id="2_2pewp"]
+[ext_resource type="Texture2D" uid="uid://3wcjwgkmwfsb" path="res://Assets/white one.png" id="3_8upaf"]
+[ext_resource type="Texture2D" uid="uid://bwicjfoduersb" path="res://Assets/White two.png" id="3_66iss"]
+[ext_resource type="Texture2D" uid="uid://pkwtuauld71h" path="res://Assets/White three.png" id="4_b2r17"]
+[ext_resource type="Texture2D" uid="uid://ccy2w7ta37xgt" path="res://Assets/White 4.png" id="5_224on"]
+[ext_resource type="Texture2D" uid="uid://cvxjgfkvje0s1" path="res://Assets/Effects/Empty.png" id="7_x2sei"]
+[ext_resource type="Texture2D" uid="uid://domm5y5xnpb26" path="res://Assets/Effects/Horizontal stripes white.png" id="8_6us0m"]
+[ext_resource type="Texture2D" uid="uid://b0ku153t5r4sn" path="res://Assets/Effects/Stripes vertical white.png" id="9_7810t"]
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("image", "internal_image_effect", "container", "timer")]
+script = ExtResource("1_8g7qh")
+image = NodePath("Image")
+internal_image_effect = NodePath("Image/Internal effect on object")
+tile_type = 2
+images = Array[Texture2D]([ExtResource("3_8upaf"), ExtResource("3_66iss"), ExtResource("4_b2r17"), ExtResource("5_224on"), ExtResource("2_2pewp")])
+colors = Array[Color]([Color(1, 1, 0, 1), Color(1, 0, 0, 1), Color(0, 1, 0, 1), Color(0, 0, 1, 1), Color(0, 0, 0, 1)])
+static_internal_effects = Array[Texture2D]([ExtResource("7_x2sei"), ExtResource("8_6us0m"), ExtResource("9_7810t")])
+static_external_effects = Array[Texture2D]([ExtResource("8_6us0m"), ExtResource("9_7810t")])
+container = NodePath("Container")
+timer = NodePath("Timer")
+
+[node name="Image" type="Sprite2D" parent="."]
+clip_children = 2
+texture = ExtResource("3_8upaf")
+
+[node name="Internal effect on object" type="Sprite2D" parent="Image"]
+texture = ExtResource("8_6us0m")
+
+[node name="Container" type="Node2D" parent="."]
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Container"]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
